@@ -1,0 +1,23 @@
+{
+  "name": "backyard",
+  "version": "0.1.0",
+  "description": "JavaScript utility/helper toolbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tunderdomb/backyard.git"
+  },
+  "keywords": [
+    "utility",
+    "helper"
+  ],
+  "author": "tunderdomb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tunderdomb/backyard/issues"
+  },
+  "homepage": "https://github.com/tunderdomb/backyard#readme"
+}
