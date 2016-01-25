@@ -1,13 +1,13 @@
 module.exports = Descriptor
 
-var _writable = "_writable"
-var _enumerable = "_enumerable"
-var _configurable = "_configurable"
+var propWritable = "_writable"
+var propEnumerable = "_enumerable"
+var propConfigurable = "_configurable"
 
 function Descriptor(writable, enumerable, configurable) {
-  this.value(this, _writable, writable || false)
-  this.value(this, _enumerable, enumerable || false)
-  this.value(this, _configurable, configurable || false)
+  this.value(this, propWritable, writable || false)
+  this.value(this, propEnumerable, enumerable || false)
+  this.value(this, propConfigurable, configurable || false)
 
   this.getter(this, "w", function() {
     return this.writable
@@ -34,8 +34,8 @@ function Descriptor(writable, enumerable, configurable) {
 Descriptor.prototype = {
   accessor: function(obj, name, getter, setter) {
     Object.defineProperty(obj, name, {
-      enumerable: this[_enumerable],
-      configurable: this[_configurable],
+      enumerable: this[propEnumerable],
+      configurable: this[propConfigurable],
       get: getter,
       set: setter
     })
@@ -43,43 +43,43 @@ Descriptor.prototype = {
   },
   getter: function(obj, name, fn) {
     Object.defineProperty(obj, name, {
-      enumerable: this[_enumerable],
-      configurable: this[_configurable],
+      enumerable: this[propEnumerable],
+      configurable: this[propConfigurable],
       get: fn
     })
     return this
   },
   setter: function(obj, name, fn) {
     Object.defineProperty(obj, name, {
-      enumerable: this[_enumerable],
-      configurable: this[_configurable],
+      enumerable: this[propEnumerable],
+      configurable: this[propConfigurable],
       set: fn
     })
     return this
   },
   value: function(obj, name, value) {
     Object.defineProperty(obj, name, {
-      writable: this[_writable],
-      enumerable: this[_enumerable],
-      configurable: this[_configurable],
+      writable: this[propWritable],
+      enumerable: this[propEnumerable],
+      configurable: this[propConfigurable],
       value: value
     })
     return this
   },
   method: function(obj, name, fn) {
     Object.defineProperty(obj, name, {
-      writable: this[_writable],
+      writable: this[propWritable],
       enumerable: false,
-      configurable: this[_configurable],
+      configurable: this[propConfigurable],
       value: fn
     })
     return this
   },
   property: function(obj, name, value) {
     Object.defineProperty(obj, name, {
-      writable: this[_writable],
+      writable: this[propWritable],
       enumerable: false,
-      configurable: this[_configurable],
+      configurable: this[propConfigurable],
       value: value
     })
     return this

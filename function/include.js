@@ -1,24 +1,32 @@
 var extend = require("./extend")
 
-module.exports = function include(Class, Other) {
+/**
+ * Extends a constructor's prototype with one or more constructor or prototype object
+ *
+ * @param {Function} Constructor
+ * @param {Function|Object} Other
+ *
+ * @return {Function} Constructor
+ * */
+module.exports = function include(Constructor, Other) {
   if (Array.isArray(Other)) {
     Other.forEach(function(Other) {
       if (typeof Other == "function") {
-        extend(Class, Other.prototype)
+        extend(Constructor, Other.prototype)
       }
       else if (typeof Other == "object") {
-        extend(Class, Other)
+        extend(Constructor, Other)
       }
     })
   }
   else {
     if (typeof Other == "function") {
-      extend(Class, Other.prototype)
+      extend(Constructor, Other.prototype)
     }
     else if (typeof Other == "object") {
-      extend(Class, Other)
+      extend(Constructor, Other)
     }
   }
 
-  return Class
+  return Constructor
 }

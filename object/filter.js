@@ -1,3 +1,11 @@
+/**
+ * Filter an object
+ *
+ * @param {Object} obj
+ * @param {Function} callback(* value, String key, Object obj)
+ *
+ * @return {Object} obj
+ * */
 module.exports = function(obj, callback) {
   var ret = {}
   for (var prop in obj) {
